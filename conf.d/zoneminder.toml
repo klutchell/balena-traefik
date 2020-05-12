@@ -7,7 +7,7 @@ rule = "Host(`zoneminder.ACME_DOMAIN`)"
 service = "zoneminder"
 middlewares = ["zmprefix"]
 
-[http.routers.to-zoneminder.tls]
+# [http.routers.to-zoneminder.tls]
 # certresolver = "prod"
 
 [http.services]
