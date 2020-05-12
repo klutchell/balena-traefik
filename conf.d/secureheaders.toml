@@ -3,15 +3,15 @@
 [http.middlewares]
 
 [http.middlewares.secureheaders.headers]
-stsSeconds = 15552000
+# stsSeconds = 15552000
+# stsIncludeSubdomains = true
+# stsPreload = true
 frameDeny = true
 sslForceHost = true
 sslRedirect = true
-stsIncludeSubdomains = true
 browserXssFilter = true
 contentTypeNosniff = true
 forceSTSHeader = true
-stsPreload = true
 customFrameOptionsValue = "SAMEORIGIN"
 
 [http.middlewares.secureheaders.headers.customResponseHeaders]
