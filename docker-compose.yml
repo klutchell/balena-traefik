@@ -12,6 +12,6 @@ services:
       - "443:443/tcp"
       - "8080:8080/tcp"
     volumes:
-      - "traefik:/etc/traefik"
+      - "traefik:/var/traefik"
     labels:
       io.balena.features.balena-socket: true
