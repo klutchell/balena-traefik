@@ -7,6 +7,9 @@ rule = "Host(`homeassistant.ACME_DOMAIN`)"
 service = "homeassistant"
 middlewares = ["secureheaders"]
 
+[http.routers.to-homeassistant.tls]
+# certresolver = "prod"
+
 [http.services]
 
 [http.services.homeassistant.loadBalancer]

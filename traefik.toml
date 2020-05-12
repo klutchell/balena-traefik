@@ -27,13 +27,21 @@ address = ":443"
 [entryPoints.websecure.http]
 
 [entryPoints.websecure.http.tls]
-certResolver = "myresolver"
+certResolver = "staging"
 
-[certificatesResolvers.myresolver.acme]
+[certificatesResolvers.staging.acme]
+email = "ACME_EMAIL"
+storage = "/var/traefik/acme-staging.json"
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+
+[certificatesResolvers.staging.acme.tlsChallenge]
+
+[certificatesResolvers.prod.acme]
 email = "ACME_EMAIL"
 storage = "/var/traefik/acme.json"
+caServer = "https://acme-v02.api.letsencrypt.org/directory"
 
-[certificatesResolvers.myresolver.acme.tlsChallenge]
+[certificatesResolvers.prod.acme.tlsChallenge]
 
 [providers.file]
 directory = "/etc/traefik/conf.d"
