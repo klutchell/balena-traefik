@@ -1,0 +1,16 @@
+version: "2.1"
+
+volumes:
+  traefik:
+
+services:
+  # https://hub.docker.com/_/traefik/
+  traefik:
+    build: .
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+    volumes:
+      - "traefik:/etc/traefik"
+    labels:
+      io.balena.features.balena-socket: true

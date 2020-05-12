@@ -1,0 +1,20 @@
+[http]
+
+[http.routers]
+
+[http.routers.to-zoneminder]
+rule = "Host(`zoneminder.ACME_DOMAIN`)"
+service = "zoneminder"
+middlewares = ["zmprefix"]
+
+[http.services]
+
+[http.services.zoneminder.loadBalancer]
+
+[[http.services.zoneminder.loadBalancer.servers]]
+url = "http://192.168.8.3"
+
+[http.middlewares]
+
+[http.middlewares.zmprefix.addPrefix]
+prefix = "/zm"

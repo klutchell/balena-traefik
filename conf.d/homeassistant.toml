@@ -1,0 +1,15 @@
+[http]
+
+[http.routers]
+
+[http.routers.to-homeassistant]
+rule = "Host(`homeassistant.ACME_DOMAIN`)"
+service = "homeassistant"
+middlewares = ["secureheaders"]
+
+[http.services]
+
+[http.services.homeassistant.loadBalancer]
+
+[[http.services.homeassistant.loadBalancer.servers]]
+url = "http://192.168.8.4"
