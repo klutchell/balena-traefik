@@ -5,7 +5,7 @@
 [http.routers.to-zoneminder]
 rule = "Host(`zoneminder.ACME_DOMAIN`)"
 service = "zoneminder"
-middlewares = ["zmprefix"]
+middlewares = ["hsts-header", "add-zm-prefix"]
 
 # [http.routers.to-zoneminder.tls]
 # certresolver = "prod"
@@ -19,5 +19,5 @@ url = "http://192.168.8.3"
 
 [http.middlewares]
 
-[http.middlewares.zmprefix.addPrefix]
+[http.middlewares.add-zm-prefix.addPrefix]
 prefix = "/zm"

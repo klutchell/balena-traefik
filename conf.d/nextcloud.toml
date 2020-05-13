@@ -5,7 +5,7 @@
 [http.routers.to-nextcloud]
 rule = "Host(`nextcloud.ACME_DOMAIN`)"
 service = "nextcloud"
-middlewares = ["secureheaders", "cardcaldav"]
+middlewares = ["hsts-header", "cardcaldav"]
 
 # [http.routers.to-nextcloud.tls]
 # certresolver = "prod"

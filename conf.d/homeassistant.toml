@@ -5,7 +5,7 @@
 [http.routers.to-homeassistant]
 rule = "Host(`homeassistant.ACME_DOMAIN`)"
 service = "homeassistant"
-middlewares = ["secureheaders"]
+middlewares = ["hsts-header"]
 
 # [http.routers.to-homeassistant.tls]
 # certresolver = "prod"

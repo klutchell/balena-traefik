@@ -1,0 +1,45 @@
+# generated 2020-05-13, Mozilla Guideline v5.4, Traefik 2.1.2, intermediate configuration
+# https://ssl-config.mozilla.org/#server=traefik&version=2.1.2&config=intermediate&guideline=5.4
+# [http.routers]
+
+# [http.routers.router-secure]
+# rule = "Host(`example.com`)"
+# service = "service-id"
+# middlewares = ["hsts-header"]
+
+# [http.routers.router-secure.tls]
+# options = "intermediate"
+
+# [http.routers.router-insecure]
+# rule = "Host(`example.com`)"
+# service = "service-id"
+# middlewares = ["redirect-to-https", "hsts-header"]
+
+[http.middlewares]
+
+[http.middlewares.redirect-to-https.redirectScheme]
+scheme = "https"
+
+[http.middlewares.hsts-header.headers]
+
+[http.middlewares.hsts-header.headers.customResponseHeaders]
+Strict-Transport-Security = "max-age=63072000"
+
+# due to Go limitations, it is highly recommended that you use an ECDSA
+# certificate, or you may experience compatibility issues
+# [[tls.certificates]]
+# certFile = "/path/to/signed_cert_plus_intermediates"
+# keyFile = "/path/to/private_key"
+
+[tls.options]
+
+[tls.options.intermediate]
+minVersion = "VersionTLS12"
+cipherSuites = [
+    "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+    "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305",
+    "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305"
+]
