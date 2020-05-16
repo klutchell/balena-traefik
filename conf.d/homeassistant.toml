@@ -15,4 +15,4 @@ middlewares = ["hsts-header"]
 [http.services.homeassistant.loadBalancer]
 
 [[http.services.homeassistant.loadBalancer.servers]]
-url = "http://192.168.8.4"
+url = "http://homeassistant.lan"
