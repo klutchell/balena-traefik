@@ -9,7 +9,6 @@ middlewares = ["hsts-header", "add-zm-prefix"]
 
 # [http.routers.to-zoneminder.tls]
 # certresolver = "prod"
-
 [http.services]
 
 [http.services.zoneminder.loadBalancer]
@@ -19,5 +18,6 @@ url = "http://zoneminder.lan"
 
 [http.middlewares]
 
-[http.middlewares.add-zm-prefix.addPrefix]
-prefix = "/zm"
+[http.middlewares.add-zm-prefix.replacePathRegex]
+regex = "^(/zm/)?(.*)"
+replacement = "/zm/$2"
