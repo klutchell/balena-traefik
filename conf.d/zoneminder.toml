@@ -14,7 +14,7 @@ middlewares = ["hsts-header", "add-zm-prefix"]
 [http.services.zoneminder.loadBalancer]
 
 [[http.services.zoneminder.loadBalancer.servers]]
-url = "http://zoneminder.lan"
+url = "http://192.168.8.7"
 
 [http.middlewares]
 
