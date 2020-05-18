@@ -29,19 +29,31 @@ Application envionment variables apply to all services within the application, a
 
 ## Usage
 
-### configure backend services
+You can change the files in `/var/traefik` and they will be retained. Do not modify the files in `/etc/traefik/` as they will be replaced on container restart.
 
-You will need a `conf.d./<service>.toml` file for each backend service you want to expose.
+### enable backend services
 
-There are currently 3 example services:
+Copy the template service file from `/etc/traefik/conf.d` to `/var/traefik/conf.d` for any services you want to expose. They will be loaded dynamically by Traefik.
 
-- `nextcloud.toml`
-- `zoneminder.toml`
-- `homeassistant.toml`
+```bash
+# eg. enable nextcloud service
+cp /etc/traefik/conf.d/nextcloud.toml /var/traefik/conf.d/
 
-None of these are required, they are just provided as examples to expose your self-hosted services.
+# eg. disable nextcloud service
+rm /var/traefik/conf.d/nextcloud.toml
+```
 
-The environment variable `ACME_DOMAIN` can be used in these files and will be substituted on startup.
+The environment variable `ACME_DOMAIN` will be substituted in the `/etc/traefik/conf.d` templates on startup.
+
+### enable basic auth
+
+Add credentials for basic http auth. The first user added requires `htpasswd -c` in order to create the password file. Subsequent users should only use `htpasswd` to avoid overwriting the file.
+
+```bash
+# create two users
+htpasswd -c /var/traefik/.htpasswd <user1>
+htpasswd /var/traefik/.htpasswd <user2>
+```
 
 ## Contributing
 

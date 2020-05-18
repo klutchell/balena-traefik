@@ -44,5 +44,6 @@ caServer = "https://acme-v02.api.letsencrypt.org/directory"
 [certificatesResolvers.prod.acme.tlsChallenge]
 
 [providers.file]
-directory = "/etc/traefik/conf.d"
+directory = "/var/traefik/conf.d"
+filename = "/etc/traefik/ssl.toml"
 watch = true
