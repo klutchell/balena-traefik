@@ -7,8 +7,10 @@ rule = "Host(`homeassistant.ACME_DOMAIN`)"
 service = "homeassistant"
 middlewares = ["hsts-header"]
 
-# [http.routers.to-homeassistant.tls]
-# certresolver = "prod"
+# change the certresolver from 'staging' to 'prod'
+# once you're sure everything is working
+[http.routers.to-homeassistant.tls]
+certresolver = "staging"
 
 [http.services]
 

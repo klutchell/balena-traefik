@@ -7,8 +7,10 @@ rule = "Host(`nextcloud.ACME_DOMAIN`)"
 service = "nextcloud"
 middlewares = ["hsts-header", "cardcaldav"]
 
-# [http.routers.to-nextcloud.tls]
-# certresolver = "prod"
+# change the certresolver from 'staging' to 'prod'
+# once you're sure everything is working
+[http.routers.to-nextcloud.tls]
+certresolver = "staging"
 
 [http.services]
 

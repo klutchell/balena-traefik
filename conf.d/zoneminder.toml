@@ -7,8 +7,10 @@ rule = "Host(`zoneminder.ACME_DOMAIN`)"
 service = "zoneminder"
 middlewares = ["hsts-header", "add-zm-prefix"]
 
-# [http.routers.to-zoneminder.tls]
-# certresolver = "prod"
+# change the certresolver from 'staging' to 'prod'
+# once you're sure everything is working
+[http.routers.to-zoneminder.tls]
+certresolver = "staging"
 
 [http.services]
 
