@@ -9,6 +9,7 @@ middlewares = ["hsts-header", "add-zm-prefix"]
 
 # [http.routers.to-zoneminder.tls]
 # certresolver = "prod"
+
 [http.services]
 
 [http.services.zoneminder.loadBalancer]
