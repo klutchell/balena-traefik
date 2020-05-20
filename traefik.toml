@@ -26,7 +26,7 @@ address = ":443"
 
 [certificatesResolvers.staging.acme]
 email = "ACME_EMAIL"
-storage = "/var/traefik/acme-staging.json"
+storage = "/var/traefik/acme.json"
 caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 
 [certificatesResolvers.staging.acme.tlsChallenge]
