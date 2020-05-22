@@ -55,6 +55,10 @@ htpasswd -c /var/traefik/.htpasswd <user1>
 htpasswd /var/traefik/.htpasswd <user2>
 ```
 
+### enable duplicati
+
+Connect to `http://<device-ip>:8200` and configure a new backup using any online service you prefer as the Destination and `/source` as Source Data.
+
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.
@@ -70,6 +74,7 @@ Kyle Harding <https://klutchell.dev>
 ## Acknowledgments
 
 - <https://hub.docker.com/_/traefik/>
+- <https://hub.docker.com/r/linuxserver/duplicati>
 
 ## License
 

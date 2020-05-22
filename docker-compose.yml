@@ -2,6 +2,7 @@ version: "2.1"
 
 volumes:
   traefik:
+  duplicati:
 
 services:
   # https://hub.docker.com/_/traefik/
@@ -15,3 +16,16 @@ services:
       - "traefik:/var/traefik"
     labels:
       io.balena.features.balena-socket: true
+
+  # https://hub.docker.com/r/linuxserver/duplicati
+  duplicati:
+    image: linuxserver/duplicati:arm32v7-latest
+    environment:
+      PUID: "0"
+      PGID: "0"
+      CLI_ARGS: --webservice-interface=any
+    ports:
+      - 8200:8200/tcp
+    volumes:
+      - duplicati:/config
+      - traefik:/source/traefik:ro
