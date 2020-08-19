@@ -3,15 +3,16 @@ set -e
 
 mkdir -p /etc/traefik/conf.d
 
-# substitute environment variables in traefik.toml and ssl.toml and install to /etc
+# substitute environment variables
 envsubst < /var/traefik/traefik.toml > /etc/traefik/traefik.toml
+envsubst < /var/traefik/conf.d/auth.toml > /etc/traefik/conf.d/auth.toml
 envsubst < /var/traefik/conf.d/ssl.toml > /etc/traefik/conf.d/ssl.toml
 
 for toml in /var/traefik/conf.d/*.toml
 do
     # skip files where no host rule is provided
     envsubst < "${toml}" | grep -q 'Host(``)' && continue
-    # substitute environment variables in service files and install to /etc
+    # substitute environment variables in service files
     envsubst < "${toml}" > /etc/traefik/conf.d/"$(basename "${toml}")"
 done
 

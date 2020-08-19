@@ -26,28 +26,17 @@ Application envionment variables apply to all services within the application, a
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
 |`ACME_EMAIL`|`foo@bar.com`|email address to use for ACME registration|
 |`CERTRESOLVER`|`staging`|default letsencrypt certificate resolver to use (`staging` or `prod`) - can be overriden per service file if required|
+|`BASICAUTH_USERS`|"test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/",<br>"test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0"|use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
 |`NEXTCLOUD_HOST`|`nextcloud.example.com`|in order to proxy to an internal nextcloud server, provide the public facing domain|
 |`NEXTCLOUD_SERVER`|`http://192.168.1.5:80`|in order to proxy to an internal nextcloud server, provide the internal server url|
+|`PLEX_HOST`|`plex.example.com`|in order to proxy to an internal plex server, provide the public facing domain|
+|`PLEX_SERVER`|`http://192.168.8.64:32400`|in order to proxy to an internal plex server, provide the internal server url|
 
 Note that `envsubst` is being used to install all traefik conf files so new environment variables can be added and replaced as needed.
 
 Look at the corresponding conf.d files to see which other environment variables are required.
 
 ## Usage
-
-### configure backend services
-
-You will need a `conf.d./<service>.toml` file for each backend service you want to expose.
-
-There are currently 3 example services:
-
-- `nextcloud.toml`
-- `zoneminder.toml`
-- `homeassistant.toml`
-
-None of these are required, they are just provided as examples to expose your self-hosted services.
-
-The environment variable `ACME_DOMAIN` can be used in these files and will be substituted on startup.
 
 ## Contributing
 
@@ -63,7 +52,8 @@ Kyle Harding <https://klutchell.dev>
 
 ## References
 
-- <https://docs.traefik.io/>
+- <https://docs.traefik.io/v2.2/middlewares/basicauth/>
+- <https://ssl-config.mozilla.org/>
 - <https://docs.linuxserver.io/images/docker-letsencrypt>
 - <https://github.com/linuxserver/reverse-proxy-confs>
 
