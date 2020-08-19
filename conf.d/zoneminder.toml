@@ -3,18 +3,19 @@
 [http.routers]
 
 [http.routers.to-zoneminder]
-rule = "Host(`zoneminder.ACME_DOMAIN`)"
+rule = "Host(`$ZONEMINDER_HOST`)"
 service = "zoneminder"
 middlewares = ["hsts-header", "add-zm-prefix"]
 
 # [http.routers.to-zoneminder.tls]
 # certresolver = "prod"
+
 [http.services]
 
 [http.services.zoneminder.loadBalancer]
 
 [[http.services.zoneminder.loadBalancer.servers]]
-url = "http://192.168.8.7"
+url = "$ZONEMINDER_SERVER"
 
 [http.middlewares]
 

@@ -1,0 +1,18 @@
+[http]
+
+[http.routers]
+
+[http.routers.to-ombi]
+rule = "Host(`$OMBI_HOST`)"
+service = "ombi"
+middlewares = ["hsts-header"]
+
+# [http.routers.to-ombi.tls]
+# certresolver = "prod"
+
+[http.services]
+
+[http.services.ombi.loadBalancer]
+
+[[http.services.ombi.loadBalancer.servers]]
+url = "$OMBI_SERVER"

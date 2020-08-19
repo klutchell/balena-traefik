@@ -3,7 +3,7 @@
 [http.routers]
 
 [http.routers.to-homeassistant]
-rule = "Host(`homeassistant.ACME_DOMAIN`)"
+rule = "Host(`$HOMEASSISTANT_HOST`)"
 service = "homeassistant"
 middlewares = ["hsts-header"]
 
@@ -15,4 +15,4 @@ middlewares = ["hsts-header"]
 [http.services.homeassistant.loadBalancer]
 
 [[http.services.homeassistant.loadBalancer.servers]]
-url = "http://192.168.8.4"
+url = "$HOMEASSISTANT_SERVER"

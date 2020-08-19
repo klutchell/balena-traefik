@@ -1,0 +1,18 @@
+[http]
+
+[http.routers]
+
+[http.routers.to-nzbhydra]
+rule = "Host(`$NZBHYDRA_HOST`)"
+service = "nzbhydra"
+middlewares = ["hsts-header"]
+
+# [http.routers.to-nzbhydra.tls]
+# certresolver = "prod"
+
+[http.services]
+
+[http.services.nzbhydra.loadBalancer]
+
+[[http.services.nzbhydra.loadBalancer.servers]]
+url = "$NZBHYDRA_SERVER"

@@ -23,9 +23,15 @@ Application envionment variables apply to all services within the application, a
 
 |Name|Example|Purpose|
 |---|---|---|
-|`ACME_EMAIL`|`foo@bar.com`|email address to use for ACME registration|
-|`ACME_DOMAIN`|`example.com`|provide your custom domain here|
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
+|`ACME_EMAIL`|`foo@bar.com`|email address to use for ACME registration|
+|`CERTRESOLVER`|`staging`|default letsencrypt certificate resolver to use (`staging` or `prod`) - can be overriden per service file if required|
+|`NEXTCLOUD_HOST`|`nextcloud.example.com`|in order to proxy to an internal nextcloud server, provide the public facing domain|
+|`NEXTCLOUD_SERVER`|`http://192.168.1.5:80`|in order to proxy to an internal nextcloud server, provide the internal server url|
+
+Note that `envsubst` is being used to install all traefik conf files so new environment variables can be added and replaced as needed.
+
+Look at the corresponding conf.d files to see which other environment variables are required.
 
 ## Usage
 
@@ -55,9 +61,11 @@ Kyle Harding <https://klutchell.dev>
 
 [Buy me a craft beer](https://kyles-tip-jar.myshopify.com/cart/31356317859862:1?channel=buy_button)
 
-## Acknowledgments
+## References
 
-- <https://hub.docker.com/_/traefik/>
+- <https://docs.traefik.io/>
+- <https://docs.linuxserver.io/images/docker-letsencrypt>
+- <https://github.com/linuxserver/reverse-proxy-confs>
 
 ## License
 

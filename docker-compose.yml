@@ -1,17 +1,19 @@
 version: "2.1"
 
 volumes:
-  traefik:
+  certs:
 
 services:
   # https://hub.docker.com/_/traefik/
   traefik:
     build: .
+    environment: 
+      CERTRESOLVER: staging
     ports:
       - "80:80/tcp"
       - "443:443/tcp"
       - "8080:8080/tcp"
     volumes:
-      - "traefik:/var/traefik"
+      - "certs:/var/certs"
     labels:
       io.balena.features.balena-socket: true

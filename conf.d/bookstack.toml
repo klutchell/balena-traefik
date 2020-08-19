@@ -1,0 +1,18 @@
+[http]
+
+[http.routers]
+
+[http.routers.to-bookstack]
+rule = "Host(`$BOOKSTACK_HOST`)"
+service = "bookstack"
+middlewares = ["hsts-header"]
+
+# [http.routers.to-bookstack.tls]
+# certresolver = "prod"
+
+[http.services]
+
+[http.services.bookstack.loadBalancer]
+
+[[http.services.bookstack.loadBalancer.servers]]
+url = "$BOOKSTACK_SERVER"

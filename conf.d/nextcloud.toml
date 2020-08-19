@@ -3,7 +3,7 @@
 [http.routers]
 
 [http.routers.to-nextcloud]
-rule = "Host(`nextcloud.ACME_DOMAIN`)"
+rule = "Host(`$NEXTCLOUD_HOST`)"
 service = "nextcloud"
 middlewares = ["hsts-header", "cardcaldav"]
 
@@ -15,7 +15,7 @@ middlewares = ["hsts-header", "cardcaldav"]
 [http.services.nextcloud.loadBalancer]
 
 [[http.services.nextcloud.loadBalancer.servers]]
-url = "http://192.168.8.6"
+url = "$NEXTCLOUD_SERVER"
 
 [http.middlewares]
 

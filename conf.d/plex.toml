@@ -1,0 +1,18 @@
+[http]
+
+[http.routers]
+
+[http.routers.to-plex]
+rule = "Host(`$PLEX_HOST`)"
+service = "plex"
+middlewares = ["hsts-header"]
+
+# [http.routers.to-plex.tls]
+# certresolver = "prod"
+
+[http.services]
+
+[http.services.plex.loadBalancer]
+
+[[http.services.plex.loadBalancer.servers]]
+url = "$PLEX_SERVER"
