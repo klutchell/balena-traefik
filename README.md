@@ -1,6 +1,6 @@
 # balena-traefik
 
-traefik stack for balenaCloud to proxy https domains to internal services
+[traefik](https://containo.us/traefik/) stack for balenaCloud to proxy https domains to internal services
 
 ## Requirements
 
@@ -26,7 +26,7 @@ Application envionment variables apply to all services within the application, a
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
 |`ACME_EMAIL`|`foo@bar.com`|email address to use for ACME registration|
 |`CERTRESOLVER`|`staging`|default letsencrypt certificate resolver to use (`staging` or `prod`) - can be overriden per service file if required|
-|`BASICAUTH_USERS`|"test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/",<br>"test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0"|use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
+|`BASICAUTH_USERS`|`"user1:hash","user2:hash"`|use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
 |`NEXTCLOUD_HOST`|`nextcloud.example.com`|in order to proxy to an internal nextcloud server, provide the public facing domain|
 |`NEXTCLOUD_SERVER`|`http://192.168.1.5:80`|in order to proxy to an internal nextcloud server, provide the internal server url|
 |`PLEX_HOST`|`plex.example.com`|in order to proxy to an internal plex server, provide the public facing domain|
@@ -52,7 +52,10 @@ Kyle Harding <https://klutchell.dev>
 
 ## References
 
+- <https://docs.traefik.io/v2.2/https/tls/>
+- <https://docs.traefik.io/v2.2/https/acme/>
 - <https://docs.traefik.io/v2.2/middlewares/basicauth/>
+- <https://docs.traefik.io/v2.2/middlewares/headers/>
 - <https://ssl-config.mozilla.org/>
 - <https://docs.linuxserver.io/images/docker-letsencrypt>
 - <https://github.com/linuxserver/reverse-proxy-confs>
