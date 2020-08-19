@@ -7,8 +7,8 @@ rule = "Host(`$NZBHYDRA_HOST`)"
 service = "nzbhydra"
 middlewares = ["hsts-header"]
 
-# [http.routers.to-nzbhydra.tls]
-# certresolver = "prod"
+[http.routers.to-nzbhydra.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 

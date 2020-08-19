@@ -7,8 +7,8 @@ rule = "Host(`$NEXTCLOUD_HOST`)"
 service = "nextcloud"
 middlewares = ["hsts-header", "cardcaldav"]
 
-# [http.routers.to-nextcloud.tls]
-# certresolver = "prod"
+[http.routers.to-nextcloud.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 

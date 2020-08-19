@@ -7,8 +7,8 @@ rule = "Host(`$PLEX_HOST`)"
 service = "plex"
 middlewares = ["hsts-header"]
 
-# [http.routers.to-plex.tls]
-# certresolver = "prod"
+[http.routers.to-plex.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 

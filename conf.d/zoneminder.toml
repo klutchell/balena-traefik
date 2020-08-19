@@ -7,8 +7,8 @@ rule = "Host(`$ZONEMINDER_HOST`)"
 service = "zoneminder"
 middlewares = ["hsts-header", "add-zm-prefix"]
 
-# [http.routers.to-zoneminder.tls]
-# certresolver = "prod"
+[http.routers.to-zoneminder.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 

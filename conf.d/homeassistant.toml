@@ -7,8 +7,8 @@ rule = "Host(`$HOMEASSISTANT_HOST`)"
 service = "homeassistant"
 middlewares = ["hsts-header"]
 
-# [http.routers.to-homeassistant.tls]
-# certresolver = "prod"
+[http.routers.to-homeassistant.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 
