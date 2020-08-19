@@ -3,7 +3,7 @@ checkNewVersion = false
 sendAnonymousUsage = false
 
 [log]
-level = "INFO"
+level = "DEBUG"
 
 [api]
 insecure = true
@@ -39,7 +39,7 @@ caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 [certificatesResolvers.prod.acme]
 email = "$ACME_EMAIL"
 storage = "/var/certs/acme.json"
-caServer = "https://acme-v02.api.letsencrypt.org/directory"
+# caServer = "https://acme-v02.api.letsencrypt.org/directory"
 
 [certificatesResolvers.prod.acme.tlsChallenge]
 
