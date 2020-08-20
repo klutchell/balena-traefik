@@ -1,0 +1,19 @@
+# to enable this proxy service the following environment variables are required:
+# NETDATA_HOST (eg. netdata.example.com)
+# NETDATA_SERVER (eg. http://192.168.8.64:19999)
+
+[http]
+
+[http.routers]
+
+[http.routers.to-netdata]
+rule = "Host(`$NETDATA_HOST`)"
+service = "sonarr"
+middlewares = ["hsts-header", "basic-auth"]
+
+[http.services]
+
+[http.services.netdata.loadBalancer]
+
+[[http.services.netdata.loadBalancer.servers]]
+url = "$NETDATA_SERVER"

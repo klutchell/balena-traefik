@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# BOOKSTACK_HOST (eg. bookstack.example.com)
+# BOOKSTACK_SERVER (eg. http://192.168.8.5:80)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$BOOKSTACK_HOST`)"
 service = "bookstack"
 middlewares = ["hsts-header"]
-
-[http.routers.to-bookstack.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 

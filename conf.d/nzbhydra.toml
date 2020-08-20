@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# NZBHYDRA_HOST (eg. nzbhydra.example.com)
+# NZBHYDRA_SERVER (eg. http://192.168.8.64:5076)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$NZBHYDRA_HOST`)"
 service = "nzbhydra"
 middlewares = ["hsts-header"]
-
-[http.routers.to-nzbhydra.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 

@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# ZONEMINDER_HOST (eg. zm.example.com)
+# ZONEMINDER_SERVER (eg. http://192.168.8.3:80)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$ZONEMINDER_HOST`)"
 service = "zoneminder"
 middlewares = ["hsts-header", "add-zm-prefix"]
-
-[http.routers.to-zoneminder.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 

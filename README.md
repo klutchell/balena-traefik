@@ -26,17 +26,13 @@ Application envionment variables apply to all services within the application, a
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
 |`ACME_EMAIL`|`foo@bar.com`|email address to use for ACME registration|
 |`CERTRESOLVER`|`staging`|default letsencrypt certificate resolver to use (`staging` or `prod`) - can be overriden per service file if required|
-|`BASICAUTH_USERS`|`"user1:hash","user2:hash"`|use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
-|`NEXTCLOUD_HOST`|`nextcloud.example.com`|in order to proxy to an internal nextcloud server, provide the public facing domain|
-|`NEXTCLOUD_SERVER`|`http://192.168.1.5:80`|in order to proxy to an internal nextcloud server, provide the internal server url|
-|`PLEX_HOST`|`plex.example.com`|in order to proxy to an internal plex server, provide the public facing domain|
-|`PLEX_SERVER`|`http://192.168.8.64:32400`|in order to proxy to an internal plex server, provide the internal server url|
-
-Note that `envsubst` is being used to install all traefik conf files so new environment variables can be added and replaced as needed.
-
-Look at the corresponding conf.d files to see which other environment variables are required.
+|`BASICAUTH_USERS`|`"user1:hash","user2:hash"`|(optional) use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
 
 ## Usage
+
+To enable a service proxy you must provide the environment variables required by the corresponding .toml file.
+
+For example - to enable the nextcloud service you must set `NEXTCLOUD_HOST` and `NEXTCLOUD_SERVER` either in docker-compose.yml or the Balena Application Dashboard.
 
 ## Contributing
 

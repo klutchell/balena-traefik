@@ -1,0 +1,24 @@
+# to enable this proxy service the following environment variables are required:
+# SONARR_HOST (eg. sonarr.example.com)
+# SONARR_SERVER (eg. http://192.168.8.64:8989)
+
+[http]
+
+[http.routers]
+
+[http.routers.to-sonarr]
+rule = "Host(`$SONARR_HOST`)"
+service = "sonarr"
+middlewares = ["hsts-header", "basic-auth"]
+
+[http.routers.to-sonarr-api]
+rule = "Host(`$SONARR_HOST`) && PathPrefix(`/api`)"
+service = "sonarr"
+middlewares = ["hsts-header"]
+
+[http.services]
+
+[http.services.sonarr.loadBalancer]
+
+[[http.services.sonarr.loadBalancer.servers]]
+url = "$SONARR_SERVER"

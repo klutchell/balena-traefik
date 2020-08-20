@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# PLEX_HOST (eg. plex.example.com)
+# PLEX_SERVER (eg. http://192.168.8.64:32400)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$PLEX_HOST`)"
 service = "plex"
 middlewares = ["hsts-header"]
-
-[http.routers.to-plex.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 

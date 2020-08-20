@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# NEXTCLOUD_HOST (eg. nextcloud.example.com)
+# NEXTCLOUD_SERVER (eg. http://192.168.8.7:80)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$NEXTCLOUD_HOST`)"
 service = "nextcloud"
 middlewares = ["hsts-header", "cardcaldav"]
-
-[http.routers.to-nextcloud.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 

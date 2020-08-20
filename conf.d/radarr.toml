@@ -1,0 +1,24 @@
+# to enable this proxy service the following environment variables are required:
+# RADARR_HOST (eg. radarr.example.com)
+# RADARR_SERVER (eg. http://192.168.8.64:7878)
+
+[http]
+
+[http.routers]
+
+[http.routers.to-radarr]
+rule = "Host(`$RADARR_HOST`)"
+service = "sonarr"
+middlewares = ["hsts-header", "basic-auth"]
+
+[http.routers.to-radarr-api]
+rule = "Host(`$RADARR_HOST`) && PathPrefix(`/api`)"
+service = "radarr"
+middlewares = ["hsts-header"]
+
+[http.services]
+
+[http.services.radarr.loadBalancer]
+
+[[http.services.radarr.loadBalancer.servers]]
+url = "$RADARR_SERVER"

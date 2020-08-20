@@ -1,0 +1,24 @@
+# to enable this proxy service the following environment variables are required:
+# NZBGET_HOST (eg. nzbget.example.com)
+# NZBGET_SERVER (eg. http://192.168.8.64:6789)
+
+[http]
+
+[http.routers]
+
+[http.routers.to-nzbget]
+rule = "Host(`$NZBGET_HOST`)"
+service = "sonarr"
+middlewares = ["hsts-header", "basic-auth"]
+
+[http.routers.to-nzbget-api]
+rule = "Host(`${NZBGET_HOST}`) && PathPrefix(`/{jsonrpc:([^\/:]*:[^\/:]*/)?jsonrpc}`,`/{xmlrpc:([^\/:]*:[^\/:]*/)?xmlrpc}`)"
+service = "nzbget"
+middlewares = ["hsts-header"]
+
+[http.services]
+
+[http.services.nzbget.loadBalancer]
+
+[[http.services.nzbget.loadBalancer.servers]]
+url = "$NZBGET_SERVER"

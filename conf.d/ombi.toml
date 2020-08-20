@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# OMBI_HOST (eg. requests.example.com)
+# OMBI_SERVER (eg. http://192.168.8.64:3579)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$OMBI_HOST`)"
 service = "ombi"
 middlewares = ["hsts-header"]
-
-[http.routers.to-ombi.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 

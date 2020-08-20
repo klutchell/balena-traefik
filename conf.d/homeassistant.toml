@@ -1,3 +1,7 @@
+# to enable this proxy service the following environment variables are required:
+# HOMEASSISTANT_HOST (eg. homeassistant.example.com)
+# HOMEASSISTANT_SERVER (eg. http://192.168.8.6:8123)
+
 [http]
 
 [http.routers]
@@ -6,9 +10,6 @@
 rule = "Host(`$HOMEASSISTANT_HOST`)"
 service = "homeassistant"
 middlewares = ["hsts-header"]
-
-[http.routers.to-homeassistant.tls]
-certresolver = "$CERTRESOLVER"
 
 [http.services]
 
