@@ -1,3 +1,13 @@
+# to enable basic http authentication in front of a service
+# set the following environment variables either via docker-compose.yml
+# or the Balena Application Dashboard and add 'basic-auth' to the list of
+# middlewares for that service
+#
+#  [BASICAUTH_USERS]
+#   comma separated htpasswd credentials for each desired user
+#   use `htpasswd` or this url to generate the credentials https://www.web2generators.com/apache-tools/htpasswd-generator
+#   example: "user1:hash","user2:hash"
+#
 [http.middlewares]
 
 [http.middlewares.basic-auth.basicAuth]
