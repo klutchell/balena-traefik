@@ -1,7 +1,14 @@
-# to enable this proxy service the following environment variables are required:
-# OMBI_HOST (eg. requests.example.com)
-# OMBI_SERVER (eg. http://192.168.8.64:3579)
-
+# to enable this proxy service set the following environment variables
+# either via docker-compose.yml or the Balena Application Dashboard
+#
+#  [OMBI_HOST]
+#   public domain or subdomain with dns A records pointing to your server or firewall
+#   example: requests.example.com
+#
+#  [OMBI_SERVER]
+#   internal http server url to receive proxied traffic
+#   example: http://192.168.8.64:3579
+#
 [http]
 
 [http.routers]

@@ -1,7 +1,14 @@
-# to enable this proxy service the following environment variables are required:
-# NZBHYDRA_HOST (eg. nzbhydra.example.com)
-# NZBHYDRA_SERVER (eg. http://192.168.8.64:5076)
-
+# to enable this proxy service set the following environment variables
+# either via docker-compose.yml or the Balena Application Dashboard
+#
+#  [NZBHYDRA_HOST]
+#   public domain or subdomain with dns A records pointing to your server or firewall
+#   example: nzbhydra.example.com
+#
+#  [NZBHYDRA_SERVER]
+#   internal http server url to receive proxied traffic
+#   example: http://192.168.8.64:5076
+#
 [http]
 
 [http.routers]

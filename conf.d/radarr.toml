@@ -1,7 +1,14 @@
-# to enable this proxy service the following environment variables are required:
-# RADARR_HOST (eg. radarr.example.com)
-# RADARR_SERVER (eg. http://192.168.8.64:7878)
-
+# to enable this proxy service set the following environment variables
+# either via docker-compose.yml or the Balena Application Dashboard
+#
+#  [RADARR_HOST]
+#   public domain or subdomain with dns A records pointing to your server or firewall
+#   example: radarr.example.com
+#
+#  [RADARR_SERVER]
+#   internal http server url to receive proxied traffic
+#   example: http://192.168.8.64:7878
+#
 [http]
 
 [http.routers]

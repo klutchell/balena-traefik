@@ -3,7 +3,7 @@ checkNewVersion = false
 sendAnonymousUsage = false
 
 [log]
-level = "DEBUG"
+level = "INFO"
 
 [api]
 insecure = true

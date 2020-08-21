@@ -1,7 +1,14 @@
-# to enable this proxy service the following environment variables are required:
-# ZONEMINDER_HOST (eg. zm.example.com)
-# ZONEMINDER_SERVER (eg. http://192.168.8.3:80)
-
+# to enable this proxy service set the following environment variables
+# either via docker-compose.yml or the Balena Application Dashboard
+#
+#  [ZONEMINDER_HOST]
+#   public domain or subdomain with dns A records pointing to your server or firewall
+#   example: zm.example.com
+#
+#  [ZONEMINDER_SERVER]
+#   internal http server url to receive proxied traffic
+#   example: http://192.168.8.3:80
+#
 [http]
 
 [http.routers]

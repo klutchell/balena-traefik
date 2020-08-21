@@ -1,7 +1,14 @@
-# to enable this proxy service the following environment variables are required:
-# BOOKSTACK_HOST (eg. bookstack.example.com)
-# BOOKSTACK_SERVER (eg. http://192.168.8.5:80)
-
+# to enable this proxy service set the following environment variables
+# either via docker-compose.yml or the Balena Application Dashboard
+#
+#  [BOOKSTACK_HOST]
+#   public domain or subdomain with dns A records pointing to your server or firewall
+#   example: bookstack.example.com
+#
+#  [BOOKSTACK_SERVER]
+#   internal http server url to receive proxied traffic
+#   example: http://192.168.8.5:80
+#
 [http]
 
 [http.routers]

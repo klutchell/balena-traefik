@@ -24,15 +24,15 @@ Application envionment variables apply to all services within the application, a
 |Name|Example|Purpose|
 |---|---|---|
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
-|`ACME_EMAIL`|`foo@bar.com`|email address to use for ACME registration|
-|`CERTRESOLVER`|`staging`|default letsencrypt certificate resolver to use (`staging` or `prod`) - can be overriden per service file if required|
+|`ACME_EMAIL`|`foo@bar.com`|email address to use for LetsEncrypt ACME registration|
+|`CERTRESOLVER`|`staging`|either set `staging` or `prod` for the LetsEncrypt certificate resolver URL|
 |`BASICAUTH_USERS`|`"user1:hash","user2:hash"`|(optional) use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
 
 ## Usage
 
 To enable a service proxy you must provide the environment variables required by the corresponding .toml file.
 
-For example - to enable the nextcloud service you must set `NEXTCLOUD_HOST` and `NEXTCLOUD_SERVER` either in docker-compose.yml or the Balena Application Dashboard.
+Refer to the comments at the top of each file for examples.
 
 ## Contributing
 

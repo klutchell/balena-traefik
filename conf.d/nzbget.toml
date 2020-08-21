@@ -1,7 +1,14 @@
-# to enable this proxy service the following environment variables are required:
-# NZBGET_HOST (eg. nzbget.example.com)
-# NZBGET_SERVER (eg. http://192.168.8.64:6789)
-
+# to enable this proxy service set the following environment variables
+# either via docker-compose.yml or the Balena Application Dashboard
+#
+#  [NZBGET_HOST]
+#   public domain or subdomain with dns A records pointing to your server or firewall
+#   example: nzbget.example.com
+#
+#  [NZBGET_SERVER]
+#   internal http server url to receive proxied traffic
+#   example: http://192.168.8.64:6789
+#
 [http]
 
 [http.routers]
