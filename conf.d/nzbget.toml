@@ -15,11 +15,11 @@
 
 [http.routers.to-nzbget]
 rule = "Host(`$NZBGET_HOST`)"
-service = "sonarr"
+service = "nzbget"
 middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
 [http.routers.to-nzbget-api]
-rule = "Host(`${NZBGET_HOST}`) && PathPrefix(`/{jsonrpc:([^\/:]*:[^\/:]*/)?jsonrpc}`,`/{xmlrpc:([^\/:]*:[^\/:]*/)?xmlrpc}`)"
+rule = "Host(`${NZBGET_HOST}`) && PathPrefix(`/{jsonrpc:(/[^/:]*:[^/:]*)?/jsonrpc}`,`/{xmlrpc:(/[^/:]*:[^/]*)?/xmlrpc}`)"
 service = "nzbget"
 middlewares = ["hsts-header", "ip-allowlist"]
 

@@ -15,7 +15,7 @@
 
 [http.routers.to-radarr]
 rule = "Host(`$RADARR_HOST`)"
-service = "sonarr"
+service = "radarr"
 middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
 [http.routers.to-radarr-api]
