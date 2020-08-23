@@ -16,7 +16,7 @@
 [http.routers.to-zoneminder]
 rule = "Host(`$ZONEMINDER_HOST`)"
 service = "zoneminder"
-middlewares = ["hsts-header", "add-zm-prefix"]
+middlewares = ["hsts-header", "add-zm-prefix", "ip-allowlist"]
 
 [http.services]
 

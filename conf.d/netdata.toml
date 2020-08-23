@@ -16,7 +16,7 @@
 [http.routers.to-netdata]
 rule = "Host(`$NETDATA_HOST`)"
 service = "sonarr"
-middlewares = ["hsts-header", "basic-auth"]
+middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
 [http.services]
 

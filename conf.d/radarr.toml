@@ -16,12 +16,12 @@
 [http.routers.to-radarr]
 rule = "Host(`$RADARR_HOST`)"
 service = "sonarr"
-middlewares = ["hsts-header", "basic-auth"]
+middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
 [http.routers.to-radarr-api]
 rule = "Host(`$RADARR_HOST`) && PathPrefix(`/api`)"
 service = "radarr"
-middlewares = ["hsts-header"]
+middlewares = ["hsts-header", "ip-allowlist"]
 
 [http.services]
 

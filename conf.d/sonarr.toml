@@ -16,12 +16,12 @@
 [http.routers.to-sonarr]
 rule = "Host(`$SONARR_HOST`)"
 service = "sonarr"
-middlewares = ["hsts-header", "basic-auth"]
+middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
 [http.routers.to-sonarr-api]
 rule = "Host(`$SONARR_HOST`) && PathPrefix(`/api`)"
 service = "sonarr"
-middlewares = ["hsts-header"]
+middlewares = ["hsts-header", "ip-allowlist"]
 
 [http.services]
 

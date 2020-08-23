@@ -16,7 +16,7 @@
 [http.routers.to-nextcloud]
 rule = "Host(`$NEXTCLOUD_HOST`)"
 service = "nextcloud"
-middlewares = ["hsts-header","ip-allowlist","cardcaldav"]
+middlewares = ["hsts-header", "ip-allowlist", "cardcaldav"]
 
 [http.services]
 
