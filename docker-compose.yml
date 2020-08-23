@@ -8,7 +8,9 @@ services:
   traefik:
     build: .
     environment: 
-      CERTRESOLVER: staging
+      CERTRESOLVER: "staging"
+      IP_ALLOWLIST: "'0.0.0.0/0'"
+      WHOAMI_HOST: "whoami.localhost"
     ports:
       - "80:80/tcp"
       - "443:443/tcp"
@@ -17,3 +19,10 @@ services:
       - "certs:/var/certs"
     labels:
       io.balena.features.balena-socket: true
+
+  whoami:
+    image: "containous/whoami"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.whoami.entrypoints: "websecure"
+      traefik.http.routers.whoami.middlewares: "hsts-header@file,ip-allowlist@file"

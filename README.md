@@ -27,6 +27,7 @@ Application envionment variables apply to all services within the application, a
 |`ACME_EMAIL`|`foo@bar.com`|email address to use for LetsEncrypt ACME registration|
 |`CERTRESOLVER`|`staging`|either set `staging` or `prod` for the LetsEncrypt certificate resolver URL|
 |`BASICAUTH_USERS`|`"user1:hash","user2:hash"`|(optional) use [htpasswd](https://www.web2generators.com/apache-tools/htpasswd-generator) to generate the credentials|
+|`IP_ALLOWLIST`|`"10.0.0.0/8","172.16.0.0/12","192.168.0.0/16"`|(optional) this option sets the allowed IPs (or ranges of allowed IPs by using CIDR notation)|
 
 ## Usage
 

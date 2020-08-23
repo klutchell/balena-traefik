@@ -16,7 +16,7 @@
 [http.routers.to-bookstack]
 rule = "Host(`$BOOKSTACK_HOST`)"
 service = "bookstack"
-middlewares = ["hsts-header"]
+middlewares = ["hsts-header","ip-allowlist"]
 
 [http.services]
 

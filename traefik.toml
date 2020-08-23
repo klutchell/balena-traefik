@@ -46,3 +46,8 @@ storage = "/var/certs/acme.json"
 [providers.file]
 directory = "/etc/traefik/conf.d"
 watch = true
+
+[providers.docker]
+endpoint = "unix:///var/run/balena.sock"
+exposedByDefault = false
+defaultRule = "Host(`$WHOAMI_HOST`)"
