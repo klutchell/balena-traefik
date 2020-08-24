@@ -9,7 +9,7 @@ services:
     build: .
     environment: 
       CERTRESOLVER: "staging"
-      IP_ALLOWLIST: "'0.0.0.0/0'"
+      IP_ALLOWLIST: "'10.0.0.0/8','172.16.0.0/12','192.168.0.0/16'"
       WHOAMI_HOST: "whoami.localhost"
     ports:
       - "80:80/tcp"
