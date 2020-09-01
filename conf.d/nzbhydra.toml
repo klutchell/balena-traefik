@@ -18,6 +18,9 @@ rule = "Host(`$NZBHYDRA_HOST`)"
 service = "nzbhydra"
 middlewares = ["hsts-header","ip-allowlist"]
 
+[http.routers.to-nzbhydra.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.nzbhydra.loadBalancer]

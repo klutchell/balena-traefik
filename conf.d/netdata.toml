@@ -18,6 +18,9 @@ rule = "Host(`$NETDATA_HOST`)"
 service = "netdata"
 middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
+[http.routers.to-netdata.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.netdata.loadBalancer]

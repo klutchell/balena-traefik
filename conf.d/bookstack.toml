@@ -18,6 +18,9 @@ rule = "Host(`$BOOKSTACK_HOST`)"
 service = "bookstack"
 middlewares = ["hsts-header", "ip-allowlist"]
 
+[http.routers.to-bookstack.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.bookstack.loadBalancer]

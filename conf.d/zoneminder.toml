@@ -18,6 +18,9 @@ rule = "Host(`$ZONEMINDER_HOST`)"
 service = "zoneminder"
 middlewares = ["hsts-header", "add-zm-prefix", "ip-allowlist"]
 
+[http.routers.to-zoneminder.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.zoneminder.loadBalancer]

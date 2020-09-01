@@ -18,6 +18,9 @@ rule = "Host(`$HOMEASSISTANT_HOST`)"
 service = "homeassistant"
 middlewares = ["hsts-header", "ip-allowlist"]
 
+[http.routers.to-homeassistant.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.homeassistant.loadBalancer]

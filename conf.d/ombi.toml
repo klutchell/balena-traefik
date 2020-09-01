@@ -18,6 +18,9 @@ rule = "Host(`$OMBI_HOST`)"
 service = "ombi"
 middlewares = ["hsts-header"]
 
+[http.routers.to-ombi.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.ombi.loadBalancer]

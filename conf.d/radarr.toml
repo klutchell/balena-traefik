@@ -18,10 +18,16 @@ rule = "Host(`$RADARR_HOST`)"
 service = "radarr"
 middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
+[http.routers.to-radarr.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.routers.to-radarr-api]
 rule = "Host(`$RADARR_HOST`) && PathPrefix(`/api`)"
 service = "radarr"
 middlewares = ["hsts-header", "ip-allowlist"]
+
+[http.routers.to-radarr-api.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 

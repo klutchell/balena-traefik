@@ -18,10 +18,16 @@ rule = "Host(`$SONARR_HOST`)"
 service = "sonarr"
 middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
+[http.routers.to-sonarr.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.routers.to-sonarr-api]
 rule = "Host(`$SONARR_HOST`) && PathPrefix(`/api`)"
 service = "sonarr"
 middlewares = ["hsts-header", "ip-allowlist"]
+
+[http.routers.to-sonarr-api.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 

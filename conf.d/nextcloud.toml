@@ -18,6 +18,9 @@ rule = "Host(`$NEXTCLOUD_HOST`)"
 service = "nextcloud"
 middlewares = ["hsts-header", "ip-allowlist", "cardcaldav"]
 
+[http.routers.to-nextcloud.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.services]
 
 [http.services.nextcloud.loadBalancer]

@@ -18,10 +18,16 @@ rule = "Host(`$NZBGET_HOST`)"
 service = "nzbget"
 middlewares = ["hsts-header", "basic-auth", "ip-allowlist"]
 
+[http.routers.to-nzbget.tls]
+certresolver = "$CERTRESOLVER"
+
 [http.routers.to-nzbget-api]
 rule = "Host(`${NZBGET_HOST}`) && PathPrefix(`/{jsonrpc:(/[^/:]*:[^/:]*)?/jsonrpc}`,`/{xmlrpc:(/[^/:]*:[^/]*)?/xmlrpc}`)"
 service = "nzbget"
 middlewares = ["hsts-header", "ip-allowlist"]
+
+[http.routers.to-nzbget-api.tls]
+certresolver = "$CERTRESOLVER"
 
 [http.services]
 
