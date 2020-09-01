@@ -1,4 +1,4 @@
-FROM traefik:v2.2
+FROM traefik:v2.2.8
 
 COPY traefik.toml /var/traefik/traefik.toml
 COPY conf.d /var/traefik/conf.d
