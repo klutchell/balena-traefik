@@ -1,0 +1,4 @@
+applicationEnvironmentVariables:
+    - TZ: 'America/Toronto'
+    - ACME_EMAIL: 'foo@bar.com'
+    - CERTRESOLVER: 'staging'
