@@ -11,7 +11,7 @@
 
 You can one-click-deploy this project to balena using the button below:
 
-[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)
+[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-traefik&defaultDeviceType=raspberry-pi)
 
 ## Manual Deployment
 
@@ -38,12 +38,6 @@ Refer to the comments at the top of each file for examples.
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.
-
-## Author
-
-Kyle Harding <https://klutchell.dev>
-
-[![](https://cdn.buymeacoffee.com/buttons/default-orange.png)](https://www.buymeacoffee.com/klutchell)
 
 ## References
 
